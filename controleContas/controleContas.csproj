@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="Conta.cs" />
+    <Compile Include="FormNovo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNovo.Designer.cs">
+      <DependentUpon>FormNovo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmContas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +62,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormNovo.resx">
+      <DependentUpon>FormNovo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmContas.resx">
       <DependentUpon>FrmContas.cs</DependentUpon>
     </EmbeddedResource>

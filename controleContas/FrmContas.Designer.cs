@@ -38,7 +38,7 @@
             this.sairBtn = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.cmbTitular = new System.Windows.Forms.ComboBox();
-            this.lstContas = new System.Windows.Forms.TextBox();
+            this.lstContas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -86,6 +86,7 @@
             this.balance.Name = "balance";
             this.balance.Size = new System.Drawing.Size(100, 20);
             this.balance.TabIndex = 4;
+            this.balance.TextChanged += new System.EventHandler(this.balance_TextChanged);
             // 
             // button1
             // 
@@ -96,6 +97,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Gravar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -106,6 +108,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Limpar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // sairBtn
             // 
@@ -140,10 +143,11 @@
             // 
             // lstContas
             // 
-            this.lstContas.Location = new System.Drawing.Point(43, 237);
-            this.lstContas.Multiline = true;
+            this.lstContas.FormattingEnabled = true;
+            this.lstContas.Location = new System.Drawing.Point(43, 239);
+            this.lstContas.MultiColumn = true;
             this.lstContas.Name = "lstContas";
-            this.lstContas.Size = new System.Drawing.Size(384, 156);
+            this.lstContas.Size = new System.Drawing.Size(384, 147);
             this.lstContas.TabIndex = 10;
             // 
             // FrmContas
@@ -180,8 +184,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button sairBtn;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox cmbTitular;
-        private System.Windows.Forms.TextBox lstContas;
+        public System.Windows.Forms.ComboBox cmbTitular;
+        private System.Windows.Forms.ListBox lstContas;
     }
 }
 

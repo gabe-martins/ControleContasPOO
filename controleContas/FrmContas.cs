@@ -14,18 +14,27 @@ namespace controleContas
     {
         List<Conta> contas = new List<Conta>();
         List<Cliente> clientes = new List<Cliente>();
+
         public FrmContas()
         {
             InitializeComponent();
-            clientes.Add(new Cliente("Pedro", "12345"));
-            clientes.Add(new Cliente("Kenia", "12346"));
+
+            this.AddClient("Pedro", 1992, "123456789");
 
             lstContas.Items.Clear();
-            lstContas.ForEach(delegate (Cliente cli)
+            lstContas.Items.Add("Nome\tCPF\tTitular");
+
+            clientes.ForEach(delegate (Cliente cli)
             {
-                cmbTiTular.Items.Add(cli.Nome);
+                cmbTitular.Items.Add(cli.Nome);
             }
-            );
+           );
+        }
+
+        public void AddClient(string nome, int ano, string cpf)
+        {
+            clientes.Add(new Cliente(nome, ano, cpf));
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -35,7 +44,9 @@ namespace controleContas
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            FormNovo frm = new FormNovo();
+            frm.ShowDialog(this);
+            frm.Dispose();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,6 +62,26 @@ namespace controleContas
             {
                 Application.Exit();
             }
+        }
+
+        private void lstContas_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            lstContas.Items.Add(accountNumber.Text + "\t" + balance.Text + "\t" + cmbTitular.SelectedItem.ToString());
+        }
+
+        private void balance_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            lstContas.Items.Clear();
         }
     }
 }
